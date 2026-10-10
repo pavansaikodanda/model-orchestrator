@@ -43,6 +43,14 @@ Send obvious Opus-level work straight to Opus. Climbing the ladder on it wastes 
 
 **Caps:** at most 5 agents running at once; at most 15 agents per task. If a task needs more than 15, stop and check with the user. Within those caps, choose the parallel/series mix yourself.
 
+**Cold start (cache) rules.** Every agent loads the same large fixed context (platform instructions and tool definitions, often around 65k tokens) before reading your brief. The first agent on each model pays to write it to the cache; later agents on the same model within about 5 minutes read it far cheaper. The cache is per model.
+- **Warm first:** launch one agent per model first, then launch the rest of that model's agents a few seconds later, so they hit the warm cache. Never cold-start several agents on the same model at the same moment.
+- **Reuse before respawn:** for the next chunk of similar work, message an agent that's already running instead of spawning a new one; its context is already warm. Retire it after a few tasks, once its context gets large.
+
+**Generic work (lookups, web search, multi-file reads).** The cost driver is the number of tool rounds the boss takes, because each round re-reads the boss's whole context.
+- 1–2 rounds (one file read, one fetch): do it inline.
+- 3+ rounds (several searches, pages, or files): delegate to a Haiku agent.
+
 ## 3. Briefs
 
 Keep briefs short and crisp: the goal, inputs, files the agent owns, the definition of done, and the summary format. Briefs are written by the boss, so every extra line costs top-tier output.
@@ -59,6 +67,8 @@ Files: <paths touched>
 Assumptions: <anything assumed>
 Issues: <problems found, open questions, anything not done>
 ```
+
+**Research and lookup agents** must not summarize what they found. Return the exact relevant excerpts verbatim, each with its source (URL or file path and line), and give exact figures (prices, versions, limits) as written in the source. The boss does the interpreting, so nothing is lost or distorted in a cheaper model's paraphrase.
 
 If you need more detail, message the same agent again; it keeps its context for this session. Pull detail only when the question needs it, since everything returned adds to your context.
 
