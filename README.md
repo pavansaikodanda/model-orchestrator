@@ -195,8 +195,8 @@ For anything else (research, documents, other code) these rules are skipped.
 
 ## Install
 
-1. Download [`model-orchestrator/SKILL.md`](model-orchestrator/SKILL.md).
-2. Upload it to Claude as a custom skill.
+1. Download the [`model-orchestrator/`](model-orchestrator/) folder (`SKILL.md` plus `references/`), or the packaged `model-orchestrator.skill` from Releases if available.
+2. Upload it to Claude as a custom skill. The `references/` files load only when needed (research tasks, cost reasoning, Salesforce work), so the main skill stays short.
 3. Start a chat on **Opus** (or **Fable**, if you have access).
 
 ## Usage
