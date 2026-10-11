@@ -57,6 +57,13 @@ Keep briefs short and crisp: the goal, inputs, files the agent owns, the definit
 
 Do not paste conventions into every brief. Point agents to the conventions source (see section 6).
 
+**Say how, not just what, for cheaper tiers.** Higher-tier models work out the efficient method on their own; cheaper ones tend to do the literal, simplest thing (for example, fetching items one by one). For Haiku and other cheaper agents, include in the brief:
+- **The method:** which tool or approach to use, and to prefer one bulk call (search, list or query that returns many items with the needed fields) over a call per item.
+- **A tool-call budget**, for example "at most 10 tool calls". The agent reports back if it can't finish within it.
+- **Only the fields that matter.** Ask for exact values of the fields you need, not every field in full.
+
+**Keep cheap agents' context small.** Each tool call re-reads the agent's whole context, and some models charge more per token once a prompt gets long. If a job would grow one agent's context past roughly 100k tokens, split it across several smaller agents instead.
+
 ## 4. Summaries from sub-agents
 
 Require this format, never a bare "done":
@@ -68,7 +75,7 @@ Assumptions: <anything assumed>
 Issues: <problems found, open questions, anything not done>
 ```
 
-**Research and lookup agents** must not summarize what they found. Return the exact relevant excerpts verbatim, each with its source (URL or file path and line), and give exact figures (prices, versions, limits) as written in the source. The boss does the interpreting, so nothing is lost or distorted in a cheaper model's paraphrase.
+**Research and lookup agents** must not summarize what they found. Return the exact relevant excerpts verbatim, each with its source (URL or file path and line), and give exact figures (prices, versions, limits) as written in the source. Keep it to the excerpts the question needs; dumping whole documents just moves the cost into the boss's context. The boss does the interpreting, so nothing is lost or distorted in a cheaper model's paraphrase.
 
 If you need more detail, message the same agent again; it keeps its context for this session. Pull detail only when the question needs it, since everything returned adds to your context.
 
