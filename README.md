@@ -23,26 +23,7 @@ If one top-tier model does all of it, you pay top-tier prices for the easy parts
 
 ## How it works, at a glance
 
-```mermaid
-flowchart TD
-    U([You: give a task]) --> B{Boss<br/>Opus or Fable}
-    B -->|Small, single-pass task| I[Boss does it directly<br/>no agents]
-    B -->|Big, multi-part task| P[Plan: split into chunks<br/>and map dependencies]
-    P --> H[Haiku agents<br/>search, small edits]
-    P --> S[Sonnet agents<br/>build features, tests]
-    P --> O[Opus agents<br/>complex logic, design]
-    H --> R[Boss reviews]
-    S --> R
-    O --> R
-    R -->|Approved| A{Side effect?<br/>deploy, publish, send}
-    R -->|Rejected| E[Escalate: fix brief,<br/>then move up a model]
-    E --> R
-    A -->|Reversible: sandbox, dev| D[Run automatically]
-    A -->|Irreversible: production| Q[Ask you first]
-    D --> F([Report back to you])
-    Q --> F
-    I --> F
-```
+![How it works](images/how-it-works.svg)
 
 ### The team
 
@@ -61,6 +42,8 @@ The model names in the examples are guides, not hard rules. The boss uses its ow
 ## When it does NOT kick in
 
 Spinning up a helper isn't free. Each one starts with no memory of the conversation, so the boss has to write it a brief, and the helper has to read files the boss may already have read.
+
+![Does it call the team?](images/small-vs-big.svg)
 
 So for a **single-pass task** (one file, one step, a quick answer), the boss just does it. No agents.
 
@@ -82,38 +65,11 @@ So for a **single-pass task** (one file, one step, a quick answer), the boss jus
 
 The boss notices that some pieces depend on others. The Apex code can't be written correctly until the fields exist, the component needs the Apex, and the tests need both.
 
-```mermaid
-flowchart LR
-    F1[Field: Discount__c<br/>Haiku] --> AX[Apex handler<br/>Sonnet]
-    F2[Field: Approval_Status__c<br/>Haiku] --> AX
-    AX --> T[Test class<br/>Sonnet]
-    AX --> L[LWC component<br/>Sonnet]
-    F1 --> PS[Permission set<br/>Haiku]
-    F2 --> PS
-```
+![What gets built first](images/order-of-work.svg)
 
 ### Step 2: Work runs in waves
 
 Independent pieces run at the same time. Dependent pieces wait for what they need.
-
-```mermaid
-gantt
-    title Who works when
-    dateFormat X
-    axisFormat %s
-    section Wave 1, parallel
-    Field Discount__c (Haiku)          :a1, 0, 2
-    Field Approval_Status__c (Haiku)   :a2, 0, 2
-    section Wave 2
-    Apex handler (Sonnet)              :b1, 2, 6
-    Permission set (Haiku)             :b2, 2, 3
-    section Wave 3, parallel
-    Test class (Sonnet)                :c1, 6, 9
-    LWC component (Sonnet)             :c2, 6, 10
-    section Review and deploy
-    Boss review                        :d1, 10, 12
-    Validate and deploy to sandbox     :d2, 12, 13
-```
 
 Helpers can't talk to each other directly. When a helper finishes, it reports to the boss, and the boss starts whatever was waiting on it.
 
@@ -153,13 +109,7 @@ The numbers below are **illustrative**, not real quota figures. They show the sh
 | Planning, briefs, review | 10 (Opus) | 25 (Opus) |
 | **Total** | **140** | **58** |
 
-```mermaid
-xychart-beta
-    title "Illustrative quota use for the same task"
-    x-axis ["All on Opus", "Orchestrated"]
-    y-axis "Quota units" 0 --> 150
-    bar [140, 58]
-```
+![Same job, different bill](images/cost.svg)
 
 Note that the boss's own cost **goes up** (10 → 25). Planning, writing briefs and reviewing all cost something. The savings come from moving the heavy writing to cheaper models.
 
@@ -196,16 +146,7 @@ To protect your hourly limit from sudden bursts, the skill caps itself:
 
 A piece of work counts as failed when the boss rejects it in review, or when the result doesn't match what you asked for. A helper that keeps needing clarification also counts as under-powered.
 
-```mermaid
-flowchart TD
-    X[Work rejected] --> B1{Was the brief<br/>unclear?}
-    B1 -->|Yes| FB[Fix the brief,<br/>retry same model]
-    B1 -->|No| UP[Move up one model]
-    FB -->|Still fails| UP
-    UP --> H[Haiku] --> S[Sonnet] --> O[Opus]
-    O -->|Still fails| BOSS[Boss handles<br/>that piece itself]
-    BOSS -->|Fails twice| YOU([Stop and ask you])
-```
+![If something fails](images/if-it-fails.svg)
 
 Two things make this efficient:
 

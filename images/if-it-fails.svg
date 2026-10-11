@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 370" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="370" rx="16" fill="#ffffff"/>
+  <text x="450" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#212529">If a dish comes out wrong: climb one step</text>
+
+  <!-- Step 0: fix instructions -->
+  <rect x="30" y="250" width="180" height="60" rx="10" fill="#f1f3f5" stroke="#ced4da"/>
+  <text x="120" y="276" text-anchor="middle" font-size="16" font-weight="700" fill="#212529">Fix the recipe</text>
+  <text x="120" y="297" text-anchor="middle" font-size="13" fill="#495057">clearer instructions first</text>
+
+  <rect x="225" y="200" width="150" height="110" rx="10" fill="#ebfbee" stroke="#2f9e44"/>
+  <text x="300" y="250" text-anchor="middle" font-size="17" font-weight="700" fill="#2b8a3e">Helper</text>
+  <text x="300" y="272" text-anchor="middle" font-size="13" fill="#495057">(Haiku)</text>
+
+  <rect x="390" y="150" width="150" height="160" rx="10" fill="#fff4e6" stroke="#e67700"/>
+  <text x="465" y="225" text-anchor="middle" font-size="17" font-weight="700" fill="#d9480f">Cook</text>
+  <text x="465" y="247" text-anchor="middle" font-size="13" fill="#495057">(Sonnet)</text>
+
+  <rect x="555" y="100" width="150" height="210" rx="10" fill="#f3f0ff" stroke="#7048e8"/>
+  <text x="630" y="200" text-anchor="middle" font-size="17" font-weight="700" fill="#6741d9">Expert</text>
+  <text x="630" y="222" text-anchor="middle" font-size="13" fill="#495057">(Opus)</text>
+
+  <rect x="720" y="60" width="150" height="250" rx="10" fill="#fff5f5" stroke="#e03131"/>
+  <text x="795" y="170" text-anchor="middle" font-size="17" font-weight="700" fill="#c92a2a">Ask you</text>
+  <text x="795" y="192" text-anchor="middle" font-size="13" fill="#495057">after 2 tries,</text>
+  <text x="795" y="210" text-anchor="middle" font-size="13" fill="#495057">no endless loops</text>
+
+  <text x="450" y="348" text-anchor="middle" font-size="15" fill="#495057">The next time a dish like that comes up, it goes straight to the step that worked.</text>
+</svg>

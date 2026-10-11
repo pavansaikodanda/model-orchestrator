@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="360" rx="16" fill="#ffffff"/>
+  <text x="450" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#212529">How it works: like a head chef running a kitchen</text>
+
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#868e96"/>
+    </marker>
+  </defs>
+
+  <!-- Step 1 -->
+  <rect x="30" y="80" width="180" height="120" rx="14" fill="#f1f3f5" stroke="#ced4da"/>
+  <text x="120" y="112" text-anchor="middle" font-size="15" fill="#868e96">STEP 1</text>
+  <text x="120" y="142" text-anchor="middle" font-size="20" font-weight="700" fill="#212529">You order</text>
+  <text x="120" y="170" text-anchor="middle" font-size="15" fill="#495057">"Build this feature"</text>
+
+  <line x1="215" y1="140" x2="245" y2="140" stroke="#868e96" stroke-width="3" marker-end="url(#a)"/>
+
+  <!-- Step 2 -->
+  <rect x="250" y="80" width="180" height="120" rx="14" fill="#e7f0ff" stroke="#3b5bdb"/>
+  <text x="340" y="112" text-anchor="middle" font-size="15" fill="#3b5bdb">STEP 2</text>
+  <text x="340" y="142" text-anchor="middle" font-size="20" font-weight="700" fill="#212529">Head chef plans</text>
+  <text x="340" y="170" text-anchor="middle" font-size="15" fill="#495057">Splits the job</text>
+  <text x="340" y="190" text-anchor="middle" font-size="13" fill="#868e96">(Opus)</text>
+
+  <line x1="435" y1="140" x2="465" y2="140" stroke="#868e96" stroke-width="3" marker-end="url(#a)"/>
+
+  <!-- Step 3 -->
+  <rect x="470" y="70" width="200" height="270" rx="14" fill="#f8f9fa" stroke="#ced4da"/>
+  <text x="570" y="98" text-anchor="middle" font-size="15" fill="#868e96">STEP 3</text>
+  <text x="570" y="124" text-anchor="middle" font-size="20" font-weight="700" fill="#212529">Kitchen cooks</text>
+
+  <rect x="485" y="142" width="170" height="56" rx="10" fill="#ebfbee" stroke="#2f9e44"/>
+  <text x="570" y="165" text-anchor="middle" font-size="16" font-weight="700" fill="#2b8a3e">Helper (Haiku)</text>
+  <text x="570" y="186" text-anchor="middle" font-size="13" fill="#495057">fetch, find, small fixes</text>
+
+  <rect x="485" y="207" width="170" height="56" rx="10" fill="#fff4e6" stroke="#e67700"/>
+  <text x="570" y="230" text-anchor="middle" font-size="16" font-weight="700" fill="#d9480f">Cook (Sonnet)</text>
+  <text x="570" y="251" text-anchor="middle" font-size="13" fill="#495057">build the main dishes</text>
+
+  <rect x="485" y="272" width="170" height="56" rx="10" fill="#f3f0ff" stroke="#7048e8"/>
+  <text x="570" y="295" text-anchor="middle" font-size="16" font-weight="700" fill="#6741d9">Expert (Opus)</text>
+  <text x="570" y="316" text-anchor="middle" font-size="13" fill="#495057">only the hardest parts</text>
+
+  <line x1="675" y1="140" x2="705" y2="140" stroke="#868e96" stroke-width="3" marker-end="url(#a)"/>
+
+  <!-- Step 4 -->
+  <rect x="710" y="80" width="170" height="120" rx="14" fill="#e7f0ff" stroke="#3b5bdb"/>
+  <text x="795" y="112" text-anchor="middle" font-size="15" fill="#3b5bdb">STEP 4</text>
+  <text x="795" y="142" text-anchor="middle" font-size="20" font-weight="700" fill="#212529">Chef tastes</text>
+  <text x="795" y="170" text-anchor="middle" font-size="15" fill="#495057">then serves you</text>
+
+  <text x="795" y="250" text-anchor="middle" font-size="14" fill="#495057">Cheaper cooks do</text>
+  <text x="795" y="270" text-anchor="middle" font-size="14" fill="#495057">most of the work,</text>
+  <text x="795" y="290" text-anchor="middle" font-size="14" fill="#495057">so it costs less.</text>
+</svg>

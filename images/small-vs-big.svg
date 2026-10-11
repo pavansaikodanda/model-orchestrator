@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 310" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="310" rx="16" fill="#ffffff"/>
+  <text x="450" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#212529">Does it call the team?</text>
+
+  <!-- Small -->
+  <rect x="40" y="70" width="390" height="230" rx="14" fill="#f8f9fa" stroke="#ced4da"/>
+  <text x="235" y="105" text-anchor="middle" font-size="20" font-weight="700" fill="#212529">Small job</text>
+  <text x="235" y="132" text-anchor="middle" font-size="15" fill="#495057">"Fix this one line" / "What does this do?"</text>
+  <circle cx="235" cy="200" r="30" fill="#e7f0ff" stroke="#3b5bdb" stroke-width="2"/>
+  <text x="235" y="206" text-anchor="middle" font-size="15" font-weight="700" fill="#3b5bdb">Chef</text>
+  <text x="235" y="290" text-anchor="middle" font-size="16" font-weight="700" fill="#2b8a3e">Chef does it alone. No team, no waiting.</text>
+
+  <!-- Big -->
+  <rect x="470" y="70" width="390" height="230" rx="14" fill="#f8f9fa" stroke="#ced4da"/>
+  <text x="665" y="105" text-anchor="middle" font-size="20" font-weight="700" fill="#212529">Big job</text>
+  <text x="665" y="132" text-anchor="middle" font-size="15" fill="#495057">"Build a feature" / "Research 5 topics"</text>
+  <circle cx="665" cy="170" r="26" fill="#e7f0ff" stroke="#3b5bdb" stroke-width="2"/>
+  <text x="665" y="176" text-anchor="middle" font-size="14" font-weight="700" fill="#3b5bdb">Chef</text>
+  <circle cx="595" cy="212" r="16" fill="#ebfbee" stroke="#2f9e44" stroke-width="2"/>
+  <circle cx="645" cy="218" r="16" fill="#fff4e6" stroke="#e67700" stroke-width="2"/>
+  <circle cx="695" cy="218" r="16" fill="#fff4e6" stroke="#e67700" stroke-width="2"/>
+  <circle cx="745" cy="212" r="16" fill="#ebfbee" stroke="#2f9e44" stroke-width="2"/>
+  <text x="665" y="252" text-anchor="middle" font-size="12" fill="#868e96">green = helper, orange = cook</text>
+  <text x="665" y="290" text-anchor="middle" font-size="16" font-weight="700" fill="#2b8a3e">Chef splits it across the team.</text>
+</svg>

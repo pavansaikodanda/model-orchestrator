@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="330" rx="16" fill="#ffffff"/>
+  <text x="450" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#212529">Example: what gets built first</text>
+  <text x="450" y="66" text-anchor="middle" font-size="15" fill="#495057">You can't put on the roof before the walls. Same here.</text>
+
+  <!-- Row 1 -->
+  <text x="40" y="118" font-size="18" font-weight="700" fill="#212529">1. First</text>
+  <rect x="180" y="92" width="200" height="44" rx="10" fill="#ebfbee" stroke="#2f9e44"/>
+  <text x="280" y="120" text-anchor="middle" font-size="15" fill="#212529">2 new fields</text>
+  <rect x="400" y="92" width="200" height="44" rx="10" fill="#ebfbee" stroke="#2f9e44"/>
+  <text x="500" y="120" text-anchor="middle" font-size="15" fill="#212529">Permission set</text>
+  <text x="640" y="120" font-size="14" fill="#2b8a3e">Helper, at the same time</text>
+
+  <polygon points="380,145 400,145 390,168" fill="#868e96"/>
+
+  <!-- Row 2 -->
+  <text x="40" y="203" font-size="18" font-weight="700" fill="#212529">2. Then</text>
+  <rect x="180" y="177" width="200" height="44" rx="10" fill="#fff4e6" stroke="#e67700"/>
+  <text x="280" y="205" text-anchor="middle" font-size="15" fill="#212529">Apex code</text>
+  <rect x="400" y="177" width="200" height="44" rx="10" fill="#fff4e6" stroke="#e67700"/>
+  <text x="500" y="205" text-anchor="middle" font-size="15" fill="#212529">Screen (LWC)</text>
+  <text x="640" y="205" font-size="14" fill="#d9480f">Cooks, at the same time</text>
+
+  <polygon points="380,230 400,230 390,253" fill="#868e96"/>
+
+  <!-- Row 3 -->
+  <text x="40" y="288" font-size="18" font-weight="700" fill="#212529">3. Last</text>
+  <rect x="180" y="262" width="420" height="44" rx="10" fill="#fff4e6" stroke="#e67700"/>
+  <text x="390" y="290" text-anchor="middle" font-size="15" fill="#212529">Tests (need the code to exist)</text>
+  <text x="640" y="290" font-size="14" fill="#3b5bdb">Chef checks it all</text>
+</svg>

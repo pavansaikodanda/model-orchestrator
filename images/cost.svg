@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="300" rx="16" fill="#ffffff"/>
+  <text x="450" y="40" text-anchor="middle" font-size="22" font-weight="700" fill="#212529">Same job, different bill (illustrative)</text>
+
+  <text x="40" y="110" font-size="17" font-weight="700" fill="#212529">Expert does</text>
+  <text x="40" y="132" font-size="17" font-weight="700" fill="#212529">everything</text>
+  <rect x="200" y="92" width="600" height="46" rx="8" fill="#7048e8"/>
+  <text x="815" y="122" font-size="18" font-weight="700" fill="#6741d9">140</text>
+
+  <text x="40" y="200" font-size="17" font-weight="700" fill="#212529">Chef + team</text>
+  <rect x="200" y="177" width="13" height="46" fill="#2f9e44"/>
+  <rect x="213" y="177" width="129" height="46" fill="#e67700"/>
+  <rect x="342" y="177" width="107" height="46" fill="#3b5bdb"/>
+  <text x="465" y="207" font-size="18" font-weight="700" fill="#2b8a3e">58</text>
+
+  <rect x="200" y="250" width="14" height="14" rx="3" fill="#2f9e44"/><text x="220" y="262" font-size="13" fill="#495057">Helper</text>
+  <rect x="290" y="250" width="14" height="14" rx="3" fill="#e67700"/><text x="310" y="262" font-size="13" fill="#495057">Cook</text>
+  <rect x="370" y="250" width="14" height="14" rx="3" fill="#3b5bdb"/><text x="390" y="262" font-size="13" fill="#495057">Chef planning + checking</text>
+  <text x="200" y="288" font-size="13" fill="#868e96">Units are made up to show the idea, not real prices.</text>
+</svg>
