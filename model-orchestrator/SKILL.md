@@ -71,6 +71,10 @@ Do not paste conventions into every brief. Point agents to the conventions sourc
 6. **Scope per agent:** if the checklist makes one agent's job too big for its budget or context, split it across agents.
 
 **Partial results: top up, don't accept gaps.** When an agent returns with items unfinished, send the remaining items back to the same agent with a small extra budget. It's already warm, so this is far cheaper than a new agent. Only accept a gap, clearly labelled, if the top-up also fails or the item is low impact.
+- **Top up immediately.** An agent's cache expires after about 5 minutes idle, and a cold top-up re-pays its whole context. Send the top-up as your very next action, before writing up results or doing anything else.
+- **Small leftover (1–2 items):** the boss checks them inline instead of reviving the agent.
+
+**Batch timing.** A batch of parallel agents returns only when the slowest one finishes. Don't launch a fast agent that may need a follow-up in the same batch as a slow one; launch it separately so you can act on its result while it's still warm.
 
 **Keep cheap agents' context small.** Each tool call re-reads the agent's whole context, and some models charge more per token once a prompt gets long. If a job would grow one agent's context past roughly 100k tokens, split it across several smaller agents instead.
 
