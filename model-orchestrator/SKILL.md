@@ -62,6 +62,16 @@ Do not paste conventions into every brief. Point agents to the conventions sourc
 - **A tool-call budget**, for example "at most 10 tool calls". The agent reports back if it can't finish within it.
 - **Only the fields that matter.** Ask for exact values of the fields you need, not every field in full.
 
+**Brief checklist.** Run through this before sending any brief; most agent failures trace back to a missing line here:
+1. **Method:** which tool or approach, bulk calls over per-item calls.
+2. **Budget sized to scope:** roughly 2–3 tool calls per item, plus about 30% headroom. Never give a fixed budget that's smaller than the number of things to check.
+3. **Priority order:** number the items by importance, so if the budget runs out, the least important items are the ones left undone.
+4. **Fallbacks:** say what to try when the main source fails (for example: official page → vendor help or docs site → official blog → reputable third party, labelled as such). Note known traps, such as pages that don't render or searches that return only links and need a follow-up fetch.
+5. **Done and blocked:** what "done" looks like, and to report partial results with the reason as soon as it's blocked, instead of burning the rest of the budget.
+6. **Scope per agent:** if the checklist makes one agent's job too big for its budget or context, split it across agents.
+
+**Partial results: top up, don't accept gaps.** When an agent returns with items unfinished, send the remaining items back to the same agent with a small extra budget. It's already warm, so this is far cheaper than a new agent. Only accept a gap, clearly labelled, if the top-up also fails or the item is low impact.
+
 **Keep cheap agents' context small.** Each tool call re-reads the agent's whole context, and some models charge more per token once a prompt gets long. If a job would grow one agent's context past roughly 100k tokens, split it across several smaller agents instead.
 
 ## 4. Summaries from sub-agents
