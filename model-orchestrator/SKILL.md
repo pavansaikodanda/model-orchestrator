@@ -103,6 +103,8 @@ If you need more detail, message the same agent again; it keeps its context for 
 - **Code or anything testable:** no verifier. Tests, compile and validation are the check.
 - **Low stakes, or only 1–2 key claims:** the boss spot-checks those inline.
 - **Factual research that will be relied on or shared**, especially when cheap agents covered a broad area, reported failed or secondary sources, or disagreed with each other: suggest a verifier to the user, saying what it would catch and roughly what it adds in cost and time.
+- **Broad research always gets one cheap gap check**, even when no verifier is needed: a Haiku agent gets the list of topics already covered and searches roundups for major items missing from it. Confirming flagged items can't reveal what nobody looked for.
+- **Splitting research:** besides the product or topic slices, include a "business, pricing and deals" slice by default (pricing, packaging, acquisitions, partnerships), since it is the slice most often missed.
 - **Scope it:** verify only flagged, conflicting or high-impact items, plus one gap check. A cold-started agent has a fixed startup cost, so if only one or two items need checking, the boss does it instead.
 
 ## 6. Conventions (priority order)
