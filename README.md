@@ -97,6 +97,35 @@ The work is validated (tests run, validate-only deploy), deployed to the sandbox
 
 ---
 
+## Measured results
+
+### Real-world win: Salesforce org inventory
+
+The task: build a full inventory of a client Salesforce org (51 flows, 73 Apex classes, 20 triggers, plus alerts, schedules and approval processes) and turn it into tickets.
+
+| | One Opus agent | Orchestrated (3 Sonnet + Opus boss) |
+|---|---|---|
+| Result | **Failed.** About 500k tokens in 4 minutes, hit the weekly usage limit, nothing usable | Complete inventory and tickets |
+| Wall clock | (stopped) | **~1.5 min** for the agents, which ran in parallel |
+| Tokens | ~500k before failing | ~620k in total, spread across 3 small contexts |
+| Tool calls | (stopped) | 72 (29 + 27 + 16) |
+
+Why it won: 72 tool calls and flow payloads up to 720 KB. A single agent's context grows with every call and re-reads all of it each time, so its cost rises much faster than the work. Three agents in parallel each kept a small context. The boss ran 4 bulk queries up front, then reviewed the results and wrote the tickets.
+
+### Controlled test: contract extraction (a tie)
+
+20 synthetic contracts (about 56 KB after removing shared boilerplate), field extraction plus risk flags, run as a blind A/B in fresh chats.
+
+| | Opus alone | Orchestrated (4 Haiku + Opus boss) |
+|---|---|---|
+| Cost (API prices) | ≈ $1.04 | ≈ $1.05 (Haiku ≈ $0.03 of it) |
+| Time | 2:32 | ~4:00 |
+| Accuracy | All traps caught | All traps caught |
+
+Why it tied: the reduced text fits in one context and caches well, so one pass is already cheap. The boss's fixed cost per turn uses up whatever delegation could save. The skill's default here is to do the job in one pass.
+
+**The rule these two results teach:** split when a single context would keep growing (many tool calls, large payloads, or lots of writing). Don't split when the whole job fits comfortably in one pass.
+
 ## Where the savings come from
 
 The numbers below are **illustrative**, not real quota figures. They show the shape of the trade-off, using Opus = 10 units, Sonnet = 3 units, Haiku = 1 unit for the same amount of work.
