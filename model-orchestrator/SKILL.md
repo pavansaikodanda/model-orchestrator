@@ -85,6 +85,12 @@ If you need more detail, message the same agent again; it keeps its context for 
 - **Trivial changes** (a field, a label, a one-line edit): the summary is enough.
 - Check consistency across agents against the conventions source.
 
+**Verification pass (decided by the boss, not automatic).** Boss review catches errors in what's in front of it, but it can't see what's missing and can't confirm facts without its own tool rounds. A separate verifier (usually Sonnet) checks claims against fresh sources and looks for gaps. Decide per task:
+- **Code or anything testable:** no verifier. Tests, compile and validation are the check.
+- **Low stakes, or only 1–2 key claims:** the boss spot-checks those inline.
+- **Factual research that will be relied on or shared**, especially when cheap agents covered a broad area, reported failed or secondary sources, or disagreed with each other: suggest a verifier to the user, saying what it would catch and roughly what it adds in cost and time.
+- **Scope it:** verify only flagged, conflicting or high-impact items, plus one gap check. A cold-started agent has a fixed startup cost, so if only one or two items need checking, the boss does it instead.
+
 ## 6. Conventions (priority order)
 
 1. What the user says in chat
