@@ -47,6 +47,11 @@ Send obvious Opus-level work straight to Opus. Climbing the ladder on it wastes 
 - **Warm first:** launch one agent per model first, then launch the rest of that model's agents a few seconds later, so they hit the warm cache. Never cold-start several agents on the same model at the same moment.
 - **Reuse before respawn:** for the next chunk of similar work, message an agent that's already running instead of spawning a new one; its context is already warm. Retire it after a few tasks, once its context gets large.
 
+**Boss turn economy.** Every boss turn re-reads the boss's whole conversation, so in a long chat each turn is expensive and the boss is often the biggest cost.
+- Plan the waves up front so the work finishes in as few rounds as possible; avoid a second serial wave that could have run in the first.
+- Launch all independent agents in one turn, skip narration-only turns, and do any inline check in the same turn as the review.
+- If the conversation is already very long when a big orchestrated task arrives, suggest running it in a fresh chat; the same work costs noticeably less there.
+
 **Generic work (lookups, web search, multi-file reads).** The cost driver is the number of tool rounds the boss takes, because each round re-reads the boss's whole context.
 - 1–2 rounds (one file read, one fetch): do it inline.
 - 3+ rounds (several searches, pages, or files): delegate to a Haiku agent.
@@ -103,8 +108,8 @@ If you need more detail, message the same agent again; it keeps its context for 
 - **Code or anything testable:** no verifier. Tests, compile and validation are the check.
 - **Low stakes, or only 1–2 key claims:** the boss spot-checks those inline.
 - **Factual research that will be relied on or shared**, especially when cheap agents covered a broad area, reported failed or secondary sources, or disagreed with each other: suggest a verifier to the user, saying what it would catch and roughly what it adds in cost and time.
-- **Broad research always gets one cheap gap check**, even when no verifier is needed: a Haiku agent gets the list of topics already covered and searches roundups for major items missing from it. Confirming flagged items can't reveal what nobody looked for.
-- **Splitting research:** besides the product or topic slices, include a "business, pricing and deals" slice by default (pricing, packaging, acquisitions, partnerships), since it is the slice most often missed.
+- **Broad research always gets a breadth check**, even when no verifier is needed: confirming flagged items can't reveal what nobody looked for. Run it **in the first wave**, not after: a Haiku "roundup scan" agent lists every major item from 2–3 recap or overview sources, in parallel with the topic slices. The boss then compares breadth against depth once. Only if that comparison shows real gaps does a short follow-up run.
+- **Splitting research:** besides the product or topic slices, include a "business, pricing and deals" slice by default (pricing, packaging, acquisitions, partnerships), since it is the slice most often missed. Stay within the 5-agent cap by merging small slices (for example, the roundup scan can also cover event basics).
 - **Scope it:** verify only flagged, conflicting or high-impact items, plus one gap check. A cold-started agent has a fixed startup cost, so if only one or two items need checking, the boss does it instead.
 
 ## 6. Conventions (priority order)
