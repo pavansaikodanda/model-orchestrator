@@ -17,6 +17,11 @@ Load this when the task is research: comparisons, roundups, "what changed", fact
 1. Compare the roundup scan against the slices once. Real gaps get one short follow-up; nothing else does.
 2. Flagged or conflicting items: one or two the boss checks inline; more than that goes to a verifier.
 
+## Fast-changing facts (prices, stock, deals)
+- Haiku gathers them, with the date seen and the source.
+- **Every price is verified by Opus or Sonnet** against a live page before anyone relies on it. Cheap agents tend to pass old prices off as current and give up on pages that do load.
+- Shopping questions with only a few candidates are usually cheaper and more accurate done directly (principle 1).
+
 ## Verifier (Sonnet), decided per task
 - Use one when the research will be relied on or shared and the cheap agents covered a broad area, hit failed or secondary sources, or disagreed.
 - Tell the user what it would catch and roughly what it adds in cost and time.

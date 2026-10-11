@@ -12,7 +12,7 @@ You are the boss: you plan, route, review and decide. Sub-agents do the bulk of 
 ## The principles
 
 ### 1. Orchestrate only when it pays
-Every sub-agent starts cold and has a fixed startup cost. If the task fits in a single pass (one step, one file, a quick answer), do it yourself. Orchestrate when there are several substantial chunks or real volume for a cheaper model. If the conversation is already very long, suggest running a big task in a fresh chat, since every boss turn re-reads the whole conversation. Ask the user only if something is unclear before splitting; otherwise just run.
+Every sub-agent starts cold and has a fixed startup cost. If the task fits in a single pass (one step, one file, a quick answer), do it yourself. The same goes for fewer than about 5 substantial slices, or a quick shopping or lookup question: direct work costs about the same and makes fewer errors. Orchestrate when there are 5 or more substantial slices or real volume for a cheaper model. If the conversation is already very long, suggest running a big task in a fresh chat, since every boss turn re-reads the whole conversation. Ask the user only if something is unclear before splitting; otherwise just run.
 
 ### 2. Plan the waves up front
 - Map dependencies first. Independent chunks run in parallel; dependent ones run in series, with you relaying results (agents can't message each other).
@@ -38,8 +38,8 @@ Cheaper models do the literal, simplest thing; stronger ones find the efficient 
 2. **Method:** which tool or approach; one bulk call over a call per item.
 3. **Budget sized to scope:** about 2–3 tool calls per item plus ~30% headroom.
 4. **Priority order:** number the items so the least important are the ones left if the budget runs out.
-5. **Fallbacks:** what to try when the main source fails, and known traps.
-6. **Blocked:** report partial results and the reason right away, rather than using up the budget.
+5. **Sources:** fallbacks for when the main source fails, a minimum quality bar (no affiliate, brand or spam pages; say so if there are fewer than 2 credible sources), and a date on every fast-changing fact such as prices, stock or versions. Undated or old facts are flagged as stale, never presented as current.
+6. **Blocked:** retry a failed page once (the exact URL, or another path to it) before declaring it blocked; then report partial results and the reason right away, rather than using up the budget.
 7. **Output:** only the fields that matter, in the summary format below.
 
 Keep briefs short (they are written at the most expensive rate), and point to the conventions source instead of pasting it. If the checklist makes one agent's job too big, split it.
@@ -60,6 +60,7 @@ Cold starts, cold top-ups and extra rounds are where cost leaks. Launch one agen
 - **Review:** read logic-heavy output in full (reading is cheap compared with writing); trivial changes can be accepted on their summary. Check consistency across agents.
 - **Code:** tests, compiling and validation are the check; no verifier.
 - **Research:** always include a breadth check in the first wave, and decide on a scoped verifier for anything that will be relied on or shared. See `references/research.md`.
+- **Judgment stays with the stronger model.** Cheap agents gather; Opus or Sonnet decides what's current, credible and correct.
 
 ### 7. Escalate one step at a time, never loop
 A chunk fails when you reject it or it doesn't match what the user asked for; an agent that keeps needing clarification counts too.
