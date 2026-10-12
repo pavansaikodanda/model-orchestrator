@@ -1,8 +1,14 @@
 # Model Orchestrator
 
-A Claude skill that turns Claude into a **project lead**. Instead of doing every part of a big task with the most expensive model, it breaks the task into pieces, hands each piece to the cheapest model that can do it well, checks the work, and only steps in itself when something actually needs top-level thinking.
+**One Opus agent ran for 4 minutes on a real system inventory and stopped with nothing usable. Three Sonnet agents, split by this skill, finished the complete inventory in about a minute and a half.**
 
-Think of it like a senior architect running a small team: the architect plans and reviews, juniors handle the routine work, mid-level developers build the features, and the architect only writes code personally when nobody else can.
+**Run on a job that fit in one pass, the same skill gave no gain: it tied with Opus alone, at about $1.04 against $1.05.**
+
+Both results are the point. Model Orchestrator is a Claude skill that turns Claude into a **project lead**. It splits big work across cheaper models when splitting pays, and does the work itself when it doesn't. The rule it follows, learned from measured head-to-head runs:
+
+> **Split the work when one context would keep growing** (many tool calls, large payloads, lots of writing). **If the whole job fits in one pass, don't split.**
+
+Think of a senior architect running a small team: the architect plans and reviews, juniors handle the routine work, mid-level developers build the features, and the architect only does the work personally when nobody else can.
 
 ---
 
@@ -105,10 +111,12 @@ The task: build a full inventory of a client Salesforce org (51 flows, 73 Apex c
 
 | | One Opus agent | Orchestrated (3 Sonnet + Opus boss) |
 |---|---|---|
-| Result | **Failed.** About 500k tokens in 4 minutes, hit the weekly usage limit, nothing usable | Complete inventory and tickets |
+| Result | **Stopped with nothing usable** after about 4 minutes and about 500k tokens | Complete inventory and tickets |
 | Wall clock | (stopped) | **~1.5 min** for the agents, which ran in parallel |
-| Tokens | ~500k before failing | ~620k in total, spread across 3 small contexts |
+| Tokens | ~500k in one growing context | ~620k in total, spread across 3 small contexts (on Sonnet, which counts less against usage limits than Opus) |
 | Tool calls | (stopped) | 72 (29 + 27 + 16) |
+
+This is one measured run, not a benchmark. The orchestrated run used slightly *more* tokens; it won by finishing, by being about 2.5× faster, and by running on a cheaper model tier.
 
 Why it won: 72 tool calls and flow payloads up to 720 KB. A single agent's context grows with every call and re-reads all of it each time, so its cost rises much faster than the work. Three agents in parallel each kept a small context. The boss ran 4 bulk queries up front, then reviewed the results and wrote the tickets.
 
