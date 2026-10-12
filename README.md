@@ -105,9 +105,9 @@ The work is validated (tests run, validate-only deploy), deployed to the sandbox
 
 ## Measured results
 
-### Real-world win: Salesforce org inventory
+### Real-world win: CRM system inventory
 
-The task: build a full inventory of a client Salesforce org (51 flows, 73 Apex classes, 20 triggers, plus alerts, schedules and approval processes) and turn it into tickets.
+The task: build a full inventory of a live CRM system (51 automation flows, 73 code classes, 20 triggers, plus alerts, schedules and approval processes) and turn it into tickets.
 
 | | One Opus agent | Orchestrated (3 Sonnet + Opus boss) |
 |---|---|---|
