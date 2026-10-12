@@ -2,9 +2,12 @@
 
 **One Opus agent ran for 4 minutes on a real system inventory and stopped with nothing usable. Three Sonnet agents, split by this skill, finished the complete inventory in about a minute and a half.**
 
-**Run on a job that fit in one pass, the same skill gave no gain: it tied with Opus alone, at about $1.04 against $1.05.**
+The trick is knowing when *not* to split. Model Orchestrator is a Claude skill that turns Claude into a **project lead**:
 
-Both results are the point. Model Orchestrator is a Claude skill that turns Claude into a **project lead**. It splits big work across cheaper models when splitting pays, and does the work itself when it doesn't. The rule it follows, learned from measured head-to-head runs:
+- **Small job?** It just does it itself. No helpers, no overhead.
+- **Big job?** It splits the work across cheaper models (Haiku, Sonnet), runs the pieces in parallel, and reviews everything before you see it.
+
+We tested this head to head. On a job that fit in one pass, splitting cost the same and took longer, so the skill doesn't split those. On a job whose context kept growing, splitting was the difference between nothing usable and a finished result. The rule:
 
 > **Split the work when one context would keep growing** (many tool calls, large payloads, lots of writing). **If the whole job fits in one pass, don't split.**
 
